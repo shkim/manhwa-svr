@@ -1,0 +1,13 @@
+[PicServer]
+ListenPort=8000
+ApiBaseUrl=http://comic.ogp.kr/a
+DataDir=D:\datadir
+CacheSizeMB=1
+
+LogDir=R:\
+LogConsole=true
+LogV=picsvr_debug.log
+LogW=picsvr_debug.log
+LogD=picsvr_debug.log
+LogI=picsvr_info.log
+LogE=picsvr_error.log

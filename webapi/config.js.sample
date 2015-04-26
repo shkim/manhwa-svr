@@ -1,0 +1,24 @@
+// Manwha API Server configuration
+module.exports =
+{
+	server: {
+		port:36001,
+		datadir: '/data/manhwa/data/',
+		picsvr: 'http://localhost:36002'
+	},
+
+	mysql: {
+		host: 'localhost',
+		port: 3306,
+		database: 'manhwa',
+		user: 'manhwa',
+		password: 'mypass'
+	},
+
+	redis: {
+		host: 'localhost',
+		port: 6379,
+		auth: 'mypass'
+	}
+};
+
