@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>API test</title>
+<body>
+
+<hr/>
+<h3>App Version</h3>
+<form action="http://comic.ogp.kr/a/v1/version/android" method="post">
+<input type="submit" value="Android version">
+</form>
+
+<form action="http://comic.ogp.kr/a/v1/version/ios" method="post">
+<input type="submit" value="iOS version">
+</form>
+
+<h3>User Login</h3>
+<form action="http://comic.ogp.kr/a/v1/user/login" method="post">
+Email:<input type="text" name="email" value="test@test.com"/><br/>
+FB-ID:<input type="text" name="fbid" value="TEST-FB-ID-1234"/><br/>
+<input type="submit" value="Test Login">
+</form>
+
+<h3>User Login</h3>
+<form action="http://comic.ogp.kr/a/v1/user/register" method="post">
+Email:<input type="text" name="email" value="test@test.com"/><br/>
+FB-ID:<input type="text" name="fbid" value="TEST-FB-ID-1234"/><br/>
+Name:<input type="text" name="name" value="MyNameTest"/><br/>
+ProfileURL:<input type="text" name="url" value="http://123123.com/123"/><br/>
+<input type="submit" value="Test Register">
+</form>
+
+<hr/>
+<h3>Top Directory List</h3>
+<form action="http://comic.ogp.kr/a/v1/directory" method="post">
+Session:<input type="text" name="sid" value="" size="32"/><br/>
+<input type="submit" value="Today List">
+</form>
+
+<hr/>
+
+</body></html>
