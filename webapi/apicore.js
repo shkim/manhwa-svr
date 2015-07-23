@@ -70,6 +70,14 @@ exports.init = function(config, initDoneCallback)
 
 	// Redis
 	redisClient = redis.createClient(config.redis.port, config.redis.host);
+	redisClient.on("error", function(err) {
+		console.error("Redis Error: " + err);
+	});
+	redisClient.on("ready", function() {
+		onCoreInit(initDoneCallback);
+	});
+
+	if (config.redis.auth != '')
 	redisClient.auth(config.redis.auth, function (err) {
 		if (err)
 		{
@@ -79,10 +87,6 @@ exports.init = function(config, initDoneCallback)
 		}
 
 		onCoreInit(initDoneCallback);
-	});
-
-	redisClient.on("error", function(err) {
-		console.error("Redis Error: " + err);
 	});
 }
 
