@@ -193,7 +193,7 @@ bool GetZipFileInfo(int nVolumeId, std::string& outStr)
 			*pSlash = '/';
 		}
 
-		_snprintf(buff, 512, "[\"%s\",%ld]", filename_inzip, file_info.uncompressed_size);
+		_snprintf_s(buff, 512, _TRUNCATE, "[\"%s\",%ld]", filename_inzip, file_info.uncompressed_size);
 		outStr.append(buff);
 		
 		if (++i < gi.number_entry)
@@ -221,7 +221,8 @@ bool GetZipFileInfo(int nVolumeId, std::string& outStr)
 	}
 
 	long fileSize = 0;
-	FILE* fp = fopen(zipPathname.c_str(), "rb");
+	FILE* fp;
+	fopen_s(&fp, zipPathname.c_str(), "rb");
 	if (fp != NULL)
 	{
 		fseek(fp, 0, SEEK_END);
@@ -229,7 +230,7 @@ bool GetZipFileInfo(int nVolumeId, std::string& outStr)
 		fclose(fp);
 	}
 
-	_snprintf(buff, 512, "],\n\"file_size\":%ld}", fileSize);
+	_snprintf_s(buff, 512, _TRUNCATE, "],\n\"file_size\":%ld}", fileSize);
 	outStr.append(buff);
 
 	return true;

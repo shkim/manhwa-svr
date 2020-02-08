@@ -100,7 +100,7 @@ TCHAR* GetLastErrorMsg()
 		NULL,
 		GetLastError(),
 		MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-		buff, sizeof(buff), NULL);
+		buff, sizeof(buff)/sizeof(buff[0]), NULL);
 
 	return buff;
 }
@@ -245,7 +245,7 @@ void LogManager::Log(int level, const char* pszFormat, ...)
 
 	va_list ap;
 	va_start(ap, pszFormat);
-	_vsnprintf(&szBuffer[len], sizeof(szBuffer) - len, pszFormat, ap);
+	_vsnprintf_s(&szBuffer[len], sizeof(szBuffer) - len, _TRUNCATE, pszFormat, ap);
 	va_end(ap);
 
 	if (m_bLogConsole)

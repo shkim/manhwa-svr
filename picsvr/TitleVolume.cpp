@@ -194,7 +194,7 @@ void VolumeManager::GetArcPathname(int nVolumeId, std::string& outStr)
 
 	int nFolderNum = nVolumeId / 1000;
 #ifdef _UNICODE
-	_snwprintf(fname, 128, L"%d/%d.zip", nFolderNum, nVolumeId);
+	_snwprintf_s(fname, 128, _TRUNCATE, L"%d/%d.zip", nFolderNum, nVolumeId);
 #else
 	snprintf(fname, 128, "%d/%d.zip", nFolderNum, nVolumeId);
 #endif

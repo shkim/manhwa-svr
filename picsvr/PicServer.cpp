@@ -127,7 +127,7 @@ static void HandleGetPic(http_request request, const std::shared_ptr<ParamGetPic
 		_tprintf(_T("QuerySession: %s for Vol%d\n"), param->sessionId.c_str(), param->nVolumeId);
 
 		TCHAR szURL[128];
-		_sntprintf(szURL, 128, U("%s/v1/drm/%s/%d"), s_strApiBaseUrl.c_str(), param->sessionId.c_str(), param->nVolumeId);
+		_sntprintf_s(szURL, 128, U("%s/v1/drm/%s/%d"), s_strApiBaseUrl.c_str(), _TRUNCATE, param->sessionId.c_str(), param->nVolumeId);
 		
 		http_client client(szURL);
 		client.request(methods::GET).then([request, predicate](http_response resp)
@@ -321,7 +321,7 @@ static void ServerMain(ConfigSection* pSect)
 	// get max volume id number
 	{
 		TCHAR szURL[128];
-		_sntprintf(szURL, 128, U("%s/admin/getMaxVolume"), s_strApiBaseUrl.c_str());
+		_sntprintf_s(szURL, 128, _TRUNCATE, U("%s/admin/getMaxVolume"), s_strApiBaseUrl.c_str());
 		http_client client(szURL);
 		client.request(methods::GET).then([](task<http_response> responseTask)
 		{

@@ -574,7 +574,7 @@ bool ConfigFile::ParseConfFile()
 		}
 
 		//StringCchCopyA(szOrigLineBuff, 256, pszLine);
-		strncpy(szOrigLineBuff, pszLine, 255);
+		strncpy_s(szOrigLineBuff, pszLine, 255);
 
 		pEqual = strchr(pszLine, '=');
 		if (pEqual == NULL)
