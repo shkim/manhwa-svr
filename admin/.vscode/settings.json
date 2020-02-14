@@ -1,0 +1,13 @@
+{
+  "window.title": "${activeEditorShort} - Manhwa Admin",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "vue",
+      "autoFix": true
+    }
+  ],
+  "files.eol": "\n",
+  "editor.renderWhitespace": "all",
+}
